@@ -9,13 +9,11 @@ import numpy as np
 import math
 from ECHO_modules.get_data import get_echo_data
 
+from SCP_utils import add_how_contact
+
 st.title('Cross Program Data')
 
-# Add a selectbox to the sidebar:
-add_selectbox = st.sidebar.selectbox(
-    'How would you like to be contacted?',
-    ('Email', 'Home phone', 'Mobile phone')
-)
+add_how_contact()
 
 # Add a slider to the sidebar:
 add_slider = st.sidebar.slider(

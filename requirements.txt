@@ -2,4 +2,5 @@ numpy==1.24.2
 pandas==1.5.3
 streamlit==1.20.0
 
-git+https://github.com/edgi-govdata-archiving/ECHO_modules
+git+https://github.com/edgi-govdata-archiving/ECHO_modules@packaging
+
