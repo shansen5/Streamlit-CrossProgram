@@ -16,10 +16,7 @@ from SCP_utils import show_region_type_widget, show_state_widget, \
 
 st.title('Cross Program Data')
 
-violators = Violators()
-st.pyplot(violators.demand_supply_cruve())
-
-"st.session_state object", st.session_state
+# "st.session_state object", st.session_state
 
 if "region_type" not in st.session_state:
     st.session_state.region_type = "None"
@@ -33,7 +30,6 @@ if "program" not in st.session_state:
 st.session_state.program = show_program_widget()
 
 st.session_state.region_type = show_region_type_widget()
-st.write(st.session_state.region_type)
 
 if st.session_state.region_type != "None":
     if st.session_state.region_type == "Zip Code": 
@@ -44,12 +40,12 @@ if st.session_state.region_type != "None":
         st.session_state.watershed = show_watershed_widget()
     else:
         st.session_state.state = show_state_widget()
-        st.write(st.session_state.state)
         if st.session_state.region_type == "County":
             st.session_state.county = show_county_widget(st.session_state.state)
-            st.write(st.session_state.county)
             if st.session_state.county != "None":
-                violators.show_top_violators(region_type='County',
+                violators = Violators()
+                violators.show_top_violators(program = st.session_state.program,
+                                             region_type='County',
                                              state=st.session_state.state,
                                              region=st.session_state.county)
 
